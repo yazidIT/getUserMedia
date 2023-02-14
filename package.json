@@ -25,7 +25,9 @@
   "scripts": {
     "test-travis": "test/run-tests",
     "lint": "jshint .",
-    "validate": "npm ls"
+    "validate": "npm ls",
+    "testling": "browserify test/test.js | testling --html",
+    "build-test": "browserify test/test.js > test_2_bundle.js"
   },
   "main": "getusermedia.js",
   "repository": {
