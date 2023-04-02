@@ -3,9 +3,9 @@
 // The test script language comes from tape.
 /* jshint node: true */
 /* global Promise */
-var test = require('tape');
+import test from 'tape';
 
-var getUserMedia = require('../getusermedia');
+import getUserMedia from '../getusermedia.js';
 
 test('getUserMedia audio-only', function (t) {
   var constraints = {audio: true, fake: true};

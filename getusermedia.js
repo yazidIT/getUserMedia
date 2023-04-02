@@ -1,7 +1,8 @@
 // getUserMedia helper by @HenrikJoreteg used for navigator.getUserMedia shim
-var adapter = require('webrtc-adapter');
+import adapter from 'webrtc-adapter';
 
-module.exports = function (constraints, cb) {
+var getUserMedia = function(constraints, cb) {
+
     var error;
     var haveOpts = arguments.length === 2;
     var defaultOpts = {video: true, audio: true};
@@ -73,3 +74,5 @@ module.exports = function (constraints, cb) {
         cb(error);
     });
 };
+
+export default getUserMedia;

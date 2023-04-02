@@ -5,10 +5,11 @@
   "author": "Henrik Joreteg <henrik@andyet.net>",
   "devDependencies": {
     "browserify": "^13.0.1",
+    "esmify": "^2.1.1",
     "precommit-hook": "^3.0.0",
     "tape": "^4.0.0",
-    "travis-multirunner": "^3.0.0",
-    "testling": "^1.7.1"
+    "testling": "^1.7.1",
+    "travis-multirunner": "^3.0.0"
   },
   "keywords": [
     "browser",
@@ -27,9 +28,10 @@
     "lint": "jshint .",
     "validate": "npm ls",
     "testling": "browserify test/test.js | testling --html",
-    "build-test": "browserify test/test.js > test_2_bundle.js"
+    "build-test": "browserify test/test.js -p esmify > test_2_bundle.js"
   },
   "main": "getusermedia.js",
+  "type": "module",
   "repository": {
     "type": "git",
     "url": "https://github.com/otalk/getUserMedia"
