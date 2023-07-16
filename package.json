@@ -1,9 +1,12 @@
 {
   "name": "getusermedia",
   "description": "cross-browser getUserMedia shim with node.js style error-first API.",
-  "version": "2.0.1",
+  "version": "2.2.0",
   "author": "Henrik Joreteg <henrik@andyet.net>",
   "devDependencies": {
+    "@babel/core": "^7.22.9",
+    "@babel/preset-env": "^7.22.9",
+    "babelify": "^10.0.0",
     "browserify": "^13.0.1",
     "esmify": "^2.1.1",
     "precommit-hook": "^3.0.0",
@@ -28,17 +31,13 @@
     "lint": "jshint .",
     "validate": "npm ls",
     "testling": "browserify test/test.js | testling --html",
-    "build-test": "browserify test/test.js -p esmify > test_2_bundle.js"
+    "build-test": "browserify -t [babelify] -p esmify test/test.js -o test_bundle.js",
+    "build": "node build.js"
   },
   "main": "getusermedia.js",
   "type": "module",
   "repository": {
     "type": "git",
     "url": "https://github.com/otalk/getUserMedia"
-  },
-  "pre-commit": [
-    "lint",
-    "validate",
-    "test"
-  ]
+  }
 }
